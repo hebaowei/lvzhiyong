@@ -1,0 +1,73 @@
+#include<stdio.h>
+#include<Windows.h>
+#include<time.h>   
+#include<stdlib.h>
+#include<time.h>   
+void main() 
+{     
+int a, b, c, d,i;    
+float p, q; 
+double s;  
+char op;      
+srand(unsigned( time(NULL)));    
+for (i = 0; i < 60; i++)   
+{        
+a = rand() % 20;      
+b = rand() % 20;        
+c = rand() % 4;        
+switch (c)       
+{      
+case 0: 
+printf("%d + %d =\n", b, a);   
+scanf_s("%d", &s);       
+{if(s==a+b)printf("Right!");    
+else
+printf("Error!");   
+}    
+break;
+         case 1:
+         if (a > b)   
+         {                   
+         d = a;                
+         a = b;             
+         b = d;         }          
+         printf("%d - %d =\n", a, b);  
+         scanf_s("%d", &s);        
+         {if(s==a-b)printf("Right!");        
+         else
+         printf("Error!");  
+         }         
+         break;        
+         case 2:
+         printf("%d * %d =\n", a, b);    
+         scanf_s("%d", &s);       
+         {if(s==a*b)printf("Right!");       
+         else 
+         printf("Error!");    
+         }      
+         break;       
+         case 3:          
+         while (b == 0)        
+         {                
+         b = rand() % 20;          
+         }          
+         printf("%d / %d =\n", a, b); 
+         scanf_s("%d", &s);       
+         {if(s==a/b)printf("Right!");        
+         else
+         printf("Error!");   
+         }       
+         break;             
+         }     
+         }  
+         system("pause");
+}
+
+
+
+
+
+
+
+
+
