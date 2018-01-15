@@ -1,0 +1,25 @@
+import sqlite3
+CONN = sqlite3.connect("store.sqlite3")
+try:
+    cu = CONN.cursor()
+    cu.execute('''CREATE TABLE "history" (
+         `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+         `question` TEXT,
+         `answer` TEXT,
+         `correct_answer` TEXT,
+         `created_at` TIMESTAMP DEFAULT '',
+         `solved_time` INTEGER,
+         `source` TEXT DEFAULT ''
+    )''')
+except:
+    pass
+def fetch(table, where, rows, other_info=''):
+    cu = CONN.cursor()
+    result = cu.execute('SELECT ' + ','.join(rows) +
+                        ' FROM ' + table +
+                        ' WHERE ' + where +
+                        ' ' + other_info)
+    result = list(
+        dict(zip(rows, row)) for row in result
+    )
+    return result
